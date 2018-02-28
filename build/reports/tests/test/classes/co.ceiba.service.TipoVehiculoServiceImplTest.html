@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">4</div>
+<div class="counter">3</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.023s</div>
+<div class="counter">0.021s</div>
 <p>duration</p>
 </div>
 </td>
@@ -64,7 +64,7 @@
 <a href="#tab0">Tests</a>
 </li>
 <li>
-<a href="#tab1">Standard error</a>
+<a href="#tab1">Standard output</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
@@ -78,45 +78,33 @@
 </tr>
 </thead>
 <tr>
-<td class="success">DeleteTipoVehiculo</td>
-<td>0.003s</td>
+<td class="success">getTipoVehiculoById</td>
+<td>0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getTipoVehiculoByNombre</td>
-<td>0.007s</td>
+<td>0.005s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">listAllTiposVehiculo</td>
-<td>0.010s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">saveTipoVehiculo</td>
-<td>0.003s</td>
+<td>0.014s</td>
 <td class="success">passed</td>
 </tr>
 </table>
 </div>
 <div id="tab1" class="tab">
-<h2>Standard error</h2>
+<h2>Standard output</h2>
 <span class="code">
-<pre>[Test worker] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.ceiba.service.TipoVehiculoServiceImplTest], using DelegatingSmartContextLoader
-[Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [co.ceiba.service.TipoVehiculoServiceImplTest]: no resource found for suffixes {-context.xml}.
-[Test worker] INFO org.springframework.test.context.support.AbstractDelegatingSmartContextLoader - AnnotationConfigContextLoader detected default configuration classes for context configuration [ContextConfigurationAttributes@481e29f5 declaringClass = 'co.ceiba.service.TipoVehiculoServiceImplTest', classes = '{class co.ceiba.service.TipoVehiculoServiceImplTest$TipoVehiculoServiceImplTestContextConfiguration}', locations = '{}', inheritLocations = false, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
-[Test worker] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-[Test worker] INFO org.springframework.test.context.support.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50887536, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@643cd0c8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@22b5447c, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3f9eac66, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2cac4f66, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2e9460ab, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@260a47a1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6c3d329a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@22a49704, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2f383ac3, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5bfb47ca, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5ed717cd]
-[Test worker] WARN org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
-
-Found multiple occurrences of org.json.JSONObject on the class path:
-
-	jar:file:/C:/Users/hernan.rodriguez/.gradle/caches/modules-2/files-2.1/org.json/json/20180130/26ba2ec0e791a32ea5dfbedfcebf36447ee5b12c/json-20180130.jar!/org/json/JSONObject.class
-	jar:file:/C:/Users/hernan.rodriguez/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
-
-You may wish to exclude one of them to ensure predictable runtime behavior
-
-[Test worker] INFO org.springframework.context.support.GenericApplicationContext - Refreshing org.springframework.context.support.GenericApplicationContext@58cdb7a4: startup date [Tue Feb 27 20:22:27 COT 2018]; root of context hierarchy
+<pre>2018-02-28 16:53:32.410  INFO 6712 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.ceiba.service.TipoVehiculoServiceImplTest], using DelegatingSmartContextLoader
+2018-02-28 16:53:32.410  INFO 6712 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [co.ceiba.service.TipoVehiculoServiceImplTest]: no resource found for suffixes {-context.xml}.
+2018-02-28 16:53:32.411  INFO 6712 --- [    Test worker] c.s.AbstractDelegatingSmartContextLoader : AnnotationConfigContextLoader detected default configuration classes for context configuration [ContextConfigurationAttributes@5415ea98 declaringClass = 'co.ceiba.service.TipoVehiculoServiceImplTest', classes = '{class co.ceiba.service.TipoVehiculoServiceImplTest$TipoVehiculoServiceImplTestContextConfiguration}', locations = '{}', inheritLocations = false, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.test.context.ContextLoader'].
+2018-02-28 16:53:32.415  INFO 6712 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-02-28 16:53:32.415  INFO 6712 --- [    Test worker] o.s.t.c.s.DefaultTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6f5d8aa0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@32a3f8cb, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@7d7b3db4, org.springframework.test.context.support.DirtiesContextTestExecutionListener@778de119, org.springframework.test.context.transaction.TransactionalTestExecutionListener@74866dc2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@59cea639, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7d7ca629, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@65e105b6, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@224e9cb5, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@e9d09ab, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1648abbf, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7be9c075]
+2018-02-28 16:53:32.418  INFO 6712 --- [    Test worker] o.s.c.support.GenericApplicationContext  : Refreshing org.springframework.context.support.GenericApplicationContext@2d144089: startup date [Wed Feb 28 16:53:32 COT 2018]; root of context hierarchy
+id vehiculo construido: 0
+id vehiculo recuperado: 0
 </pre>
 </span>
 </div>
@@ -128,7 +116,7 @@ You may wish to exclude one of them to ensure predictable runtime behavior
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 4.5</a> at Feb 27, 2018 8:22:27 PM</p>
+<a href="http://www.gradle.org">Gradle 4.5</a> at Feb 28, 2018 4:53:33 PM</p>
 </div>
 </div>
 </body>

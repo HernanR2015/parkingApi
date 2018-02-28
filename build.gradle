@@ -1,11 +1,10 @@
 buildscript {
 	ext {
-		springBootVersion = '1.5.10.BUILD-SNAPSHOT'
+		springBootVersion = '1.5.9.RELEASE'
 	}
 	repositories {
 		mavenCentral()
-		maven { url "https://repo.spring.io/snapshot" }
-		maven { url "https://repo.spring.io/milestone" }
+		
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
@@ -16,11 +15,11 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jacoco'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+
 
 
 group = 'co.ceiba'
-version = '0.0.1-SNAPSHOT'
+
 sourceCompatibility = 1.8
 
 jar {
@@ -30,27 +29,20 @@ jar {
 
 repositories {
 	mavenCentral()
-	maven { url "https://repo.spring.io/snapshot" }
-	maven { url "https://repo.spring.io/milestone" }
+	
 }
 
 dependencies {
 	compile 'org.springframework.boot:spring-boot-starter'
-	testCompile 'org.springframework.boot:spring-boot-starter-test'
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile "org.springframework.boot:spring-boot-starter-data-jpa"
-    compile "com.h2database:h2"
-    //compile 'org.json:json:20180130'
-    // https://mvnrepository.com/artifact/org.postgresql/postgresql
-	compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1200-jdbc41'
-    
-	runtime 'org.postgresql:postgresql'
 	
-	compile group: 'com.sun.jersey', name: 'jersey-core', version: '1.19.4'
-	compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'
-	compile group: 'com.sun.jersey', name: 'jersey-servlet', version: '1.19.4'
-	compile group: 'com.sun.jersey', name: 'jersey-client', version: '1.19.4'
-	compile group: 'com.google.code.gson', name: 'gson', version:'2.7'
+
+   
+	//compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1200-jdbc41'
+	compile group: 'postgresql', name: 'postgresql', version: '9.1-901.jdbc4'	
+	compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'	
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {

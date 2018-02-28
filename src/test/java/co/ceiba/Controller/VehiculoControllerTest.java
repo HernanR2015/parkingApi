@@ -23,14 +23,9 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import co.ceiba.TestDataBuilder.TipoVehiculoTestDataBuilder;
 import co.ceiba.TestDataBuilder.VehiculoTestDataBuilder;
-import co.ceiba.model.TipoVehiculo;
 import co.ceiba.model.Vehiculo;
-import co.ceiba.repository.TipoVehiculoRepository;
 import co.ceiba.repository.VehiculoRepository;
-import co.ceiba.service.TipoVehiculoService;
-import co.ceiba.service.TipoVehiculoServiceImpl;
 import co.ceiba.service.VehiculoService;
 import co.ceiba.service.VehiculoServiceImpl;
 import co.ceiba.web.VehiculoController;
