@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RegistrarIngresoProcess.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">parqueaderoREST</a> &gt; <a href="index.source.html" class="el_package">co.ceiba.process</a> &gt; <span class="el_source">RegistrarIngresoProcess.java</span></div><h1>RegistrarIngresoProcess.java</h1><pre class="source lang-java linenums">package co.ceiba.process;
+
+
+import co.ceiba.model.Estacionamiento;
+import co.ceiba.model.Vehiculo;
+import co.ceiba.service.EstacionamientoService;
+import co.ceiba.service.VehiculoService;
+
+<span class="nc" id="L9">public class RegistrarIngresoProcess {</span>
+
+	static final int ESTADO_ACTIVO = 1;
+
+	public Estacionamiento registrarIngresoProcess(EstacionamientoService estacionamientoService,
+		VehiculoService vehiculoService, Vehiculo vehiculo) {
+<span class="nc" id="L15">		Estacionamiento estacionamientoRegistrado = new Estacionamiento();</span>
+<span class="nc" id="L16">		ReglasParqueaderoProcess reglas = new ReglasParqueaderoProcess();</span>
+		try {
+<span class="nc" id="L18">			ConsultasProcess consultaDisponibilidad = new ConsultasProcess();</span>
+<span class="nc" id="L19">			int vehiculosActivos = consultaDisponibilidad.consultarVehiculosActivosPorTipo(vehiculoService,</span>
+<span class="nc" id="L20">					vehiculo.getTipoVehiculo(), ESTADO_ACTIVO);</span>
+<span class="nc" id="L21">			boolean disponibilidad = reglas.validarCupoTipoVehiculo(vehiculosActivos, vehiculo.getTipoVehiculo());</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">			if (disponibilidad) {</span>
+<span class="nc" id="L23">				boolean validarPlaca = reglas.validarPlaca(vehiculo.getPlaca());</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">				if (validarPlaca) {</span>
+<span class="nc" id="L25">					vehiculo.setEstado(ESTADO_ACTIVO);</span>
+<span class="nc" id="L26">					Vehiculo vehiculoIngresado = vehiculoService.saveVehiculo(vehiculo);</span>
+<span class="nc" id="L27">					Estacionamiento estacionamiento = new Estacionamiento();</span>
+<span class="nc" id="L28">					estacionamiento.setIdVehiculo(vehiculoIngresado.getIdVehiculo());</span>
+<span class="nc" id="L29">					Estacionamiento estacionamientoAsignado = estacionamientoService</span>
+<span class="nc" id="L30">							.saveEstacionamiento(estacionamiento);</span>
+<span class="nc" id="L31">					estacionamientoRegistrado = estacionamientoAsignado;</span>
+				}
+			}
+<span class="nc" id="L34">			return estacionamientoRegistrado;</span>
+<span class="nc" id="L35">		} catch (Exception excepcion) {</span>
+<span class="nc" id="L36">			System.out.println(&quot;error realizando ingreso&quot;);</span>
+<span class="nc" id="L37">			return null;</span>
+		}
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

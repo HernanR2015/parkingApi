@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReglasParqueaderoProcess.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">parqueaderoREST</a> &gt; <a href="index.source.html" class="el_package">co.ceiba.process</a> &gt; <span class="el_source">ReglasParqueaderoProcess.java</span></div><h1>ReglasParqueaderoProcess.java</h1><pre class="source lang-java linenums">package co.ceiba.process;
+
+import java.util.Calendar;
+import java.util.Date;
+
+<span class="nc" id="L6">public class ReglasParqueaderoProcess {</span>
+	static final int TOTAL_CARROS = 20;
+	static final int TOTAL_MOTOS = 10;
+
+	static final int TIPO_VEHICULO_CARRO = 1;
+	static final int TIPO_VEHICULO_MOTO = 2;
+	
+	static final String LETRA_INICIAL_PLACA = &quot;A&quot;;
+
+	public boolean validarCupoTipoVehiculo(int totalVehiculosActivos, int tipoVehiculo) {
+<span class="nc" id="L16">		boolean disponible = false;</span>
+
+<span class="nc bnc" id="L18" title="All 4 branches missed.">		if (tipoVehiculo == TIPO_VEHICULO_CARRO &amp;&amp; totalVehiculosActivos &gt; TOTAL_CARROS) {</span>
+<span class="nc" id="L19">			disponible = true;</span>
+<span class="nc bnc" id="L20" title="All 4 branches missed.">		} else if (tipoVehiculo == TIPO_VEHICULO_MOTO &amp;&amp; totalVehiculosActivos &gt; TOTAL_MOTOS) {</span>
+<span class="nc" id="L21">			disponible = true;</span>
+		}
+<span class="nc" id="L23">		return disponible;</span>
+	}
+	
+	public boolean validarPlaca(String placa) {
+<span class="nc" id="L27">		String letraInicial = placa.toUpperCase().substring(0, 1);</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">		if (letraInicial.equals(LETRA_INICIAL_PLACA)) {</span>
+<span class="nc" id="L29">			Calendar fechaActual = Calendar.getInstance();</span>
+<span class="nc" id="L30">			fechaActual.setTime(new Date());</span>
+<span class="nc bnc" id="L31" title="All 4 branches missed.">			if (fechaActual.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY || fechaActual.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY) {</span>
+<span class="nc" id="L32">				return true;</span>
+			} else {
+<span class="nc" id="L34">				return false;</span>
+			}
+		} else {
+<span class="nc" id="L37">			return true;</span>
+		}
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
