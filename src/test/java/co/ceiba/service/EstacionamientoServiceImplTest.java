@@ -67,24 +67,4 @@ public class EstacionamientoServiceImplTest {
 				Assert.assertNotNull(estacionamientoGuardado);
 
 	}
-
-	@Test
-	public void deleteEstacionamiento() {
-		
-		// Arrange
-		Estacionamiento estacionamiento = new EstacionamientoTestDataBuilder().withValor(6500).build();
-		estacionamientoService.saveEstacionamiento(estacionamiento);
-				boolean flag = false;
-				// Act
-				try {
-					estacionamientoService.deleteEstacionamiento(estacionamiento.getIdEstacionamiento());
-					flag = true;
-				} catch (Exception e) {
-					flag = false;
-				}
-				// Assert
-				Assert.assertTrue(flag);
-
-	}
-
 }

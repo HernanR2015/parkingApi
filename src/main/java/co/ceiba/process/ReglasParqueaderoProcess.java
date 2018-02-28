@@ -15,9 +15,9 @@ public class ReglasParqueaderoProcess {
 	public boolean validarCupoTipoVehiculo(int totalVehiculosActivos, int tipoVehiculo) {
 		boolean disponible = false;
 
-		if (tipoVehiculo == TIPO_VEHICULO_CARRO && totalVehiculosActivos > TOTAL_CARROS) {
+		if (tipoVehiculo == TIPO_VEHICULO_CARRO && totalVehiculosActivos < TOTAL_CARROS) {
 			disponible = true;
-		} else if (tipoVehiculo == TIPO_VEHICULO_MOTO && totalVehiculosActivos > TOTAL_MOTOS) {
+		} else if (tipoVehiculo == TIPO_VEHICULO_MOTO && totalVehiculosActivos < TOTAL_MOTOS) {
 			disponible = true;
 		}
 		return disponible;

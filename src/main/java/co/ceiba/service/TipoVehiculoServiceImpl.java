@@ -30,13 +30,5 @@ public class TipoVehiculoServiceImpl implements TipoVehiculoService {
 		return tipoVehiculoRepository.findByNombreTipoVehiculo(nombreTipoVehiculo);
 	}
 
-	@Override
-	public TipoVehiculo saveTipoVehiculo(TipoVehiculo tipoVehiculo) {
-		return tipoVehiculoRepository.save(tipoVehiculo);
-	}
-
-	@Override
-	public void deleteTipoVehiculo(int idTipoVehiculo) {
-		tipoVehiculoRepository.delete(idTipoVehiculo);	
-	}
+	
 }

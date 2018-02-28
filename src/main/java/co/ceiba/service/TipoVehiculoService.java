@@ -12,8 +12,6 @@ public interface TipoVehiculoService {
 	
 	public TipoVehiculo getTipoVehiculoByNombre(String nombreTipoVehiculo);
 	
-	TipoVehiculo saveTipoVehiculo(TipoVehiculo tipoVehiculo);
 	
-	void deleteTipoVehiculo(int idTipoVehiculo);
 
 }

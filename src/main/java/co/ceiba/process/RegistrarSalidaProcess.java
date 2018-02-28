@@ -39,11 +39,13 @@ public class RegistrarSalidaProcess {
 	return estacionamientoCobrado;
 	}
 
-	private double calcularCobro(Estacionamiento estacionamiento, double valorHora, double valorDia ,Date fechaSalida) {
+	public double calcularCobro(Estacionamiento estacionamiento, double valorHora, double valorDia ,Date fechaSalida) {
 		
 		double valorCobro = 0;
 		int dias = 0;
 		int horas = 0;
+		System.out.println("fecha salida :"+fechaSalida.getTime());
+		System.out.println("fecha ingreso :"+estacionamiento.getFechaIngreso().getTime());
 		int tiempoTranscurrido = (int) ((fechaSalida.getTime() - estacionamiento.getFechaIngreso().getTime()) / 1000);
 
 		if (tiempoTranscurrido >= NUEVE_HORAS && tiempoTranscurrido <= DIA) {
@@ -53,7 +55,10 @@ public class RegistrarSalidaProcess {
 			tiempoTranscurrido = tiempoTranscurrido - (DIA * dias);
 			horas = tiempoTranscurrido / HORA;
 		} else {
+			System.out.println("entra menos de 9 horas");
+			System.out.println("tiempo transcurrido : "+tiempoTranscurrido);
 			horas = tiempoTranscurrido / HORA;
+			System.out.println("horas  "+horas );
 		}
 
 		if (valorCobro == 0) {

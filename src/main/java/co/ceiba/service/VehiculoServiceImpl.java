@@ -42,10 +42,10 @@ public class VehiculoServiceImpl implements VehiculoService{
 		return vehiculoRepository.findByPlaca(placa);	
 	}
 
-	@Override
-	public void deleteVehiculo(int id) {
-		vehiculoRepository.delete(id);	
-	}
+//	@Override
+//	public void deleteVehiculo(int id) {
+//		vehiculoRepository.delete(id);	
+//	}
 
 	@Override
 	public List<Vehiculo> getByEstado(int estado) {

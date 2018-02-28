@@ -24,7 +24,7 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
 jar {
-	baseName = 'spring-boot-sample'
+	baseName = 'parqueadero-Rest'
 	version = '0.1.0'
 }
 
@@ -40,7 +40,7 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "com.h2database:h2"
-    compile 'org.json:json:20180130'
+    //compile 'org.json:json:20180130'
     // https://mvnrepository.com/artifact/org.postgresql/postgresql
 	compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1200-jdbc41'
     

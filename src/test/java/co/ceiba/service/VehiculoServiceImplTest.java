@@ -84,23 +84,7 @@ public class VehiculoServiceImplTest {
 		// Assert
 		Assert.assertNotNull(vehiculoGuardado);
 	}
-	
-	@Test
-	public void DeleteVehiculo() {
-		// Arrange
-		Vehiculo vehiculo = new VehiculoTestDataBuilder().withPlaca("ABC123").build();
-		vehiculoService.deleteVehiculo(vehiculo.getIdVehiculo());
-		boolean flag = false;
-		// Act
-		try {
-			vehiculoService.deleteVehiculo(vehiculo.getIdVehiculo());
-			flag = true;
-		} catch (Exception e) {
-			flag = false;
-		}
-		// Assert
-		Assert.assertTrue(flag);
-	}
+
 	
 	
 	

@@ -22,9 +22,9 @@ public class EstacionamientoServiceImpl implements EstacionamientoService {
 		return estacionamientoRepository.save(estacionamiento);
 	}
 
-	@Override
-	public void deleteEstacionamiento(int id) {
-		estacionamientoRepository.delete(id);
-	}
+//	@Override
+//	public void deleteEstacionamiento(int id) {
+//		estacionamientoRepository.delete(id);
+//	}
 
 }

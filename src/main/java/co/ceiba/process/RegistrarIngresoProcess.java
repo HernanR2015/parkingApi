@@ -1,6 +1,8 @@
 package co.ceiba.process;
 
 
+import java.util.List;
+
 import co.ceiba.model.Estacionamiento;
 import co.ceiba.model.Vehiculo;
 import co.ceiba.service.EstacionamientoService;
@@ -15,25 +17,31 @@ public class RegistrarIngresoProcess {
 		Estacionamiento estacionamientoRegistrado = new Estacionamiento();
 		ReglasParqueaderoProcess reglas = new ReglasParqueaderoProcess();
 		try {
-			ConsultasProcess consultaDisponibilidad = new ConsultasProcess();
-			int vehiculosActivos = consultaDisponibilidad.consultarVehiculosActivosPorTipo(vehiculoService,
-					vehiculo.getTipoVehiculo(), ESTADO_ACTIVO);
-			boolean disponibilidad = reglas.validarCupoTipoVehiculo(vehiculosActivos, vehiculo.getTipoVehiculo());
+			List<Vehiculo> vehiculosActivos = vehiculoService.getByTipoVehiculoAndEstado(vehiculo.getTipoVehiculo(), ESTADO_ACTIVO);
+			System.out.println("obtiene vehiculos Activos --"+vehiculosActivos.size());
+			boolean disponibilidad = reglas.validarCupoTipoVehiculo(vehiculosActivos.size(), vehiculo.getTipoVehiculo());
+			System.out.println("valida disponibilidad ---"+disponibilidad);
 			if (disponibilidad) {
 				boolean validarPlaca = reglas.validarPlaca(vehiculo.getPlaca());
+				System.out.println("valida placa ---"+disponibilidad);
+
 				if (validarPlaca) {
 					vehiculo.setEstado(ESTADO_ACTIVO);
+					System.out.println(" asigna estado vehiculo ---"+disponibilidad);
+					System.out.println(vehiculo.getPlaca());
 					Vehiculo vehiculoIngresado = vehiculoService.saveVehiculo(vehiculo);
+					System.out.println("guarda vehiculo ---"+vehiculoIngresado.getIdVehiculo());
+
 					Estacionamiento estacionamiento = new Estacionamiento();
 					estacionamiento.setIdVehiculo(vehiculoIngresado.getIdVehiculo());
-					Estacionamiento estacionamientoAsignado = estacionamientoService
-							.saveEstacionamiento(estacionamiento);
+					Estacionamiento estacionamientoAsignado = estacionamientoService.saveEstacionamiento(estacionamiento);
+					System.out.println("guarda estacionamiento ---"+vehiculoIngresado.getIdVehiculo());
 					estacionamientoRegistrado = estacionamientoAsignado;
 				}
 			}
 			return estacionamientoRegistrado;
 		} catch (Exception excepcion) {
-			System.out.println("error realizando ingreso");
+			System.out.println("error realizando ingreso_ ++++"+excepcion);
 			return null;
 		}
 	}

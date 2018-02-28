@@ -18,10 +18,10 @@ public class VehiculoTestDataBuilder {
 		this.tipoVehiculo = 1;
 	}
 	
-	public VehiculoTestDataBuilder withIdVehiculo(int idVehiculo) {
-		this.idVehiculo = idVehiculo;
-		return this;
-	}
+//	public VehiculoTestDataBuilder withIdVehiculo(int idVehiculo) {
+//		this.idVehiculo = idVehiculo;
+//		return this;
+//	}
 	
 	public VehiculoTestDataBuilder withPlaca(String placa) {
 		this.placa = placa;

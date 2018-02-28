@@ -21,10 +21,10 @@ public class EstacionamientoTestDataBuilder {
 		this.idVehiculo =1;
 	}
 	
-	public EstacionamientoTestDataBuilder withIdEstacionamiento(int idEstacionamiento) {
-		this.idEstacionamiento = idEstacionamiento;
-		return this;
-	}
+//	public EstacionamientoTestDataBuilder withIdEstacionamiento(int idEstacionamiento) {
+//		this.idEstacionamiento = idEstacionamiento;
+//		return this;
+//	}
 	
 	public EstacionamientoTestDataBuilder withValor(double valor) {
 		this.valor = valor;

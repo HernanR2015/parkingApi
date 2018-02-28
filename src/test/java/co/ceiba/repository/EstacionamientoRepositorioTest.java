@@ -27,13 +27,9 @@ public class EstacionamientoRepositorioTest {
 		Estacionamiento estacionamientoBuild = new EstacionamientoTestDataBuilder().withValor(8500).build();
 		entityManager.persist(estacionamientoBuild);
 		entityManager.flush();
-		Estacionamiento estacionamientoRec = estacionamientoRepository
-				.findByIdVehiculo((estacionamientoBuild.getIdVehiculo()));
-		boolean flag = false;
-		if (estacionamientoRec.getIdVehiculo() == (estacionamientoBuild.getIdVehiculo())) {
-			flag = true;
-		}
-		Assert.assertTrue(flag);
+		Estacionamiento estacionamientoRec = estacionamientoRepository.findByIdVehiculo((estacionamientoBuild.getIdVehiculo()));
+		
+		Assert.assertEquals(estacionamientoBuild, estacionamientoRec);
 	}
 
 }

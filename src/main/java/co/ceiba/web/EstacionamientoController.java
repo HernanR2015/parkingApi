@@ -1,6 +1,5 @@
 package co.ceiba.web;
 
-import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,7 +38,7 @@ public class EstacionamientoController {
 	
 	@CrossOrigin(origins = "*")
 	@RequestMapping(method = RequestMethod.GET, value = "/liberarEstacionamiento/{placa}")
-	public Estacionamiento liberarEstacionamiento(@PathVariable String placa) throws JSONException {
+	public Estacionamiento liberarEstacionamiento(@PathVariable String placa)  {
 		RegistrarSalidaProcess parqueaderoProcess = new RegistrarSalidaProcess();
 		return parqueaderoProcess.registrarSalidaProcess(tipoVehiculoService,vehiculoService,estacionamientoService,placa);
 	}

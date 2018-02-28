@@ -39,14 +39,9 @@ public class VehiculoRepositorioTest {
 		entityManager.flush();
 		
 		//act
-		Vehiculo VehiculoRec = VehiculoRepository.findOne(vehiculoBuild.getIdVehiculo());     
-
-		boolean flag = false;
-		if (VehiculoRec.getIdVehiculo()==vehiculoBuild.getIdVehiculo()) {
-			flag = true;
-		}
+		Vehiculo vehiculoRec = VehiculoRepository.findOne(vehiculoBuild.getIdVehiculo());     
 		// Assert
-		Assert.assertTrue(flag);
+		Assert.assertEquals(vehiculoBuild, vehiculoRec);
 	}
 
 	@Test
@@ -57,32 +52,13 @@ public class VehiculoRepositorioTest {
 		entityManager.flush();
 		
 		//act
-		Vehiculo VehiculoRec = VehiculoRepository.findByPlaca(vehiculoBuild.getPlaca());     
+		Vehiculo vehiculoRec = VehiculoRepository.findByPlaca(vehiculoBuild.getPlaca());     
 
-		boolean flag = false;
-		if (VehiculoRec.getPlaca().equals(vehiculoBuild.getPlaca())) {
-			flag = true;
-		}
+		
 		// Assert
-		Assert.assertTrue(flag);
+		Assert.assertEquals(vehiculoBuild, vehiculoRec);
 	}
 	
-//	@Test
-//	public void buscarVehiculosPorTipoVehiculo() {
-//		// Arrange
-//		Vehiculo vehiculoBuild = new VehiculoTestDataBuilder().withTipoVehiculo(TIPO_VEHICULO_CARRO).build();
-//		entityManager.persist(vehiculoBuild);
-//		entityManager.flush();
-//
-//		List<Vehiculo> VehiculoRec = VehiculoRepository.findByTipoVehiculo(vehiculoBuild.getTipoVehiculo());
-//
-//		boolean flag = false;
-//		if (VehiculoRec.size()>0) {
-//			flag = true;
-//		}
-//		// Assert
-//		Assert.assertTrue(flag);
-//	}
 	
 	@Test
 	public void buscarVehiculosPorTipoVehiculoYEstado() {
@@ -93,12 +69,8 @@ public class VehiculoRepositorioTest {
 
 		List<Vehiculo> VehiculoRec = VehiculoRepository.findByTipoVehiculoAndEstado(vehiculoBuild.getTipoVehiculo(),vehiculoBuild.getEstado());
 
-		boolean flag = false;
-		if (VehiculoRec.size()>0) {
-			flag = true;
-		}
 		// Assert
-		Assert.assertTrue(flag);
+		Assert.assertNotNull(VehiculoRec);
 	}
 	
 	@Test
@@ -110,12 +82,8 @@ public class VehiculoRepositorioTest {
 
 		List<Vehiculo> VehiculoRec = VehiculoRepository.findByEstado(vehiculoBuild.getEstado());
 
-		boolean flag = false;
-		if (VehiculoRec.size()>0) {
-			flag = true;
-		}
 		// Assert
-		Assert.assertTrue(flag);
+		Assert.assertNotNull(VehiculoRec);
 	}
 	
 	

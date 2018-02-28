@@ -21,6 +21,6 @@ public interface VehiculoService {
 	
 	Vehiculo getVehiculoByPlaca(String placa);
 	
-	void deleteVehiculo(int id);
+//	void deleteVehiculo(int id);
 
 }

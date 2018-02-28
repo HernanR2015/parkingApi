@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -44,6 +43,9 @@ public class TipoVehiculoServiceImplTest {
 		listaTipoVehiculo.add(tipoVehiculo);
 		Mockito.when(tipoVehiculoRepository.findByNombreTipoVehiculo(tipoVehiculo.getNombreTipoVehiculo())).thenReturn(tipoVehiculo);
 		Mockito.when(tipoVehiculoRepository.findAll()).thenReturn(listaTipoVehiculo);
+		Mockito.when(tipoVehiculoRepository.findOne(tipoVehiculo.getIdTipoVehiculo())).thenReturn(tipoVehiculo);
+
+		
 
 	}
 
@@ -53,14 +55,14 @@ public class TipoVehiculoServiceImplTest {
 		assertThat(listaTipoVehiculo).size().isNotZero();
 	}
 
-//	@Test
-//	public void getTipoVehiculoById() {
-//		TipoVehiculo tipoVehiculoBuild = new TipoVehiculoTestDataBuilder().withNombreTipoVehiculo("Camion").build();
-//		TipoVehiculo tipoVehiculoRec = tipoVehiculoService.getTipoVehiculoById(tipoVehiculoBuild.getIdTipoVehiculo());
-//		System.out.println("id vehiculo construido: "+tipoVehiculoBuild.getIdTipoVehiculo());
-//		System.out.println("id vehiculo recuperado: "+tipoVehiculoRec.getIdTipoVehiculo());
-//		assertThat(tipoVehiculoRec.getIdTipoVehiculo()).isEqualTo(tipoVehiculoBuild.getIdTipoVehiculo());
-//	}
+	@Test
+	public void getTipoVehiculoById() {
+		TipoVehiculo tipoVehiculoBuild = new TipoVehiculoTestDataBuilder().withNombreTipoVehiculo("Camion").build();
+		TipoVehiculo tipoVehiculoRec = tipoVehiculoService.getTipoVehiculoById(tipoVehiculoBuild.getIdTipoVehiculo());
+		System.out.println("id vehiculo construido: "+tipoVehiculoBuild.getIdTipoVehiculo());
+		System.out.println("id vehiculo recuperado: "+tipoVehiculoRec.getIdTipoVehiculo());
+		assertThat(tipoVehiculoRec.getIdTipoVehiculo()).isEqualTo(tipoVehiculoBuild.getIdTipoVehiculo());
+	}
 
 	@Test
 	public void getTipoVehiculoByNombre() {
@@ -68,37 +70,16 @@ public class TipoVehiculoServiceImplTest {
 		assertThat(tipoVehiculo.getNombreTipoVehiculo()).isEqualTo("Camion");
 	}
 
-	@Test
-	public void saveTipoVehiculo() {
-		// Arrange
-		TipoVehiculo vehiculo = new TipoVehiculoTestDataBuilder().build();
-		Mockito.when(tipoVehiculoRepository.save(vehiculo)).thenReturn(vehiculo);
-		// Act
-		TipoVehiculo vehiculoGuardado = new TipoVehiculo();
-		vehiculoGuardado = tipoVehiculoService.saveTipoVehiculo(vehiculo);
-		// Assert
-		Assert.assertNotNull(vehiculoGuardado);
-	}
-
-	/**
-	 * Test para simular la solicitud por la interfaz (vehiculoService) del metodo
-	 * "getVehiculoById".
-	 */
-	@Test
-	public void DeleteTipoVehiculo() {
-		// Arrange
-		TipoVehiculo tipoVehiculo = new TipoVehiculoTestDataBuilder().withNombreTipoVehiculo("Carro").build();
-		tipoVehiculoService.saveTipoVehiculo(tipoVehiculo);
-		boolean flag = false;
-		// Act
-		try {
-			tipoVehiculoService.deleteTipoVehiculo(tipoVehiculo.getIdTipoVehiculo());
-			flag = true;
-		} catch (Exception e) {
-			flag = false;
-		}
-		// Assert
-		Assert.assertTrue(flag);
-	}
+//	@Test
+//	public void saveTipoVehiculo() {
+//		// Arrange
+//		TipoVehiculo vehiculo = new TipoVehiculoTestDataBuilder().build();
+//		Mockito.when(tipoVehiculoRepository.save(vehiculo)).thenReturn(vehiculo);
+//		// Act
+//		TipoVehiculo vehiculoGuardado = new TipoVehiculo();
+//		vehiculoGuardado = tipoVehiculoService.saveTipoVehiculo(vehiculo);
+//		// Assert
+//		Assert.assertNotNull(vehiculoGuardado);
+//	}
 
 }

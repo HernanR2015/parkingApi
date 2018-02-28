@@ -38,13 +38,9 @@ public class TipoVehiculoRepositoryTest {
 		entityManager.flush();
 		// Act
 		List<TipoVehiculo> tipoVehiculoRec = (List<TipoVehiculo>) tipoVehiculoRepository.findAll();
-		System.out.println("lista --->"+tipoVehiculoRec.size());
-		boolean flag= false;
-		if (tipoVehiculoRec.size()>0) {
-			flag= true;
-		}
+		
 		// Assert
-		Assert.assertTrue(flag);
+		Assert.assertNotNull(tipoVehiculoRec);
 	}
 	
 	@Test
@@ -56,12 +52,7 @@ public class TipoVehiculoRepositoryTest {
 		// Act
 		TipoVehiculo tipoVehiculoRec = tipoVehiculoRepository.findByNombreTipoVehiculo(tvehiculoBuild.getNombreTipoVehiculo());
 		
-		boolean flag= false;
-		if (tipoVehiculoRec.getNombreTipoVehiculo().equals(tvehiculoBuild.getNombreTipoVehiculo())) {
-			flag= true;
-		}
-		// Assert
-		Assert.assertTrue(flag);
+		Assert.assertSame(tvehiculoBuild, tipoVehiculoRec);
 	}
 	
 	
