@@ -37,11 +37,12 @@ dependencies {
 	compile 'org.springframework.boot:spring-boot-starter-web'
 	compile "org.springframework.boot:spring-boot-starter-data-jpa"
 	
+	
 
    
-	//compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1200-jdbc41'
-	compile group: 'postgresql', name: 'postgresql', version: '9.1-901.jdbc4'	
+	compile group: 'org.postgresql', name: 'postgresql', version: '9.4-1206-jdbc42'
 	compile group: 'com.sun.jersey', name: 'jersey-json', version: '1.19.4'	
+	compile group: 'com.fasterxml', name: 'jackson-xml-databind', version: '0.6.2'
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 

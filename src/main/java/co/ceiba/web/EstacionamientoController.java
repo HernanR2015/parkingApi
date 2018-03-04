@@ -1,12 +1,16 @@
 package co.ceiba.web;
 
+import java.text.ParseException;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import co.ceiba.model.Estacionamiento;
 import co.ceiba.model.Vehiculo;
@@ -31,14 +35,18 @@ public class EstacionamientoController {
 	
 	@CrossOrigin(origins = "*")
 	@RequestMapping(method = RequestMethod.POST, value = "/asignarEstacionamiento")
-	public Estacionamiento asignarEstacionamiento(@RequestBody Vehiculo vehiculo) {
+	@JsonIgnoreProperties
+	public Map<Object,Object> asignarEstacionamiento(@RequestBody Vehiculo vehiculo) {
 		RegistrarIngresoProcess ingresoProcess = new RegistrarIngresoProcess();
-		return ingresoProcess.registrarIngresoProcess(estacionamientoService, vehiculoService, vehiculo);    
+		Estacionamiento estacionamiento = new Estacionamiento();
+		return ingresoProcess.registrarIngresoProcess(estacionamientoService, vehiculoService, vehiculo,estacionamiento);    
 	}
 	
 	@CrossOrigin(origins = "*")
-	@RequestMapping(method = RequestMethod.GET, value = "/liberarEstacionamiento/{placa}")
-	public Estacionamiento liberarEstacionamiento(@PathVariable String placa)  {
+	@RequestMapping(method = RequestMethod.POST, value = "/liberarEstacionamiento")
+	
+	public Map<Object, Object> liberarEstacionamiento(@RequestBody String placa) throws ParseException  {
+		
 		RegistrarSalidaProcess parqueaderoProcess = new RegistrarSalidaProcess();
 		return parqueaderoProcess.registrarSalidaProcess(tipoVehiculoService,vehiculoService,estacionamientoService,placa);
 	}

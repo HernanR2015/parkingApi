@@ -11,16 +11,6 @@ public class VehiculoServiceImpl implements VehiculoService{
 	
 	@Autowired
 	VehiculoRepository vehiculoRepository;
-	
-//	@Override
-//	public List<Vehiculo> listAllVehiculo() {
-//		return (List<Vehiculo>) vehiculoRepository.findAll();
-//	}
-
-//	@Override
-//	public List<Vehiculo> getVehiculoByTipoVehiculo(int tipoVehiculo) {
-//		return vehiculoRepository.findByTipoVehiculo(tipoVehiculo);
-//	}
 
 	@Override
 	public List<Vehiculo> getByTipoVehiculoAndEstado(int tipoVehiculo, int estado) {
@@ -41,11 +31,6 @@ public class VehiculoServiceImpl implements VehiculoService{
 	public Vehiculo getVehiculoByPlaca(String placa) {
 		return vehiculoRepository.findByPlaca(placa);	
 	}
-
-//	@Override
-//	public void deleteVehiculo(int id) {
-//		vehiculoRepository.delete(id);	
-//	}
 
 	@Override
 	public List<Vehiculo> getByEstado(int estado) {

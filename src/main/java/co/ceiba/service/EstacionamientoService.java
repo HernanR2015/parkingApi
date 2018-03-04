@@ -8,7 +8,7 @@ public interface EstacionamientoService {
 	
 	Estacionamiento saveEstacionamiento (Estacionamiento estacionamiento);
 	
-//	void deleteEstacionamiento(int id);
+
 	
 	
 

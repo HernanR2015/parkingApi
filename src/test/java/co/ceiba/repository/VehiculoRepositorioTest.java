@@ -35,41 +35,13 @@ public class VehiculoRepositorioTest {
 	static final int ESTADO_VEHICULO_ACTIVO = 1;
 	static final int TIPO_VEHICULO_INACTIVO = 0;
 	
-//	@TestConfiguration
-//	static class VehiculoServiceImplTestContextConfiguration {
-//
-//		@Bean
-//		public VehiculoService vehiculoService() {
-//			return new VehiculoServiceImpl();
-//		}
-//	}
+
 
 	@Autowired
 	private TestEntityManager entityManager;
 	
 	@Autowired
 	private VehiculoRepository VehiculoRepository;
-//	
-//	@Before 
-//	public void setUp() {
-//		Vehiculo vehiculoBuild = new VehiculoTestDataBuilder().withPlaca("ABC123").build();
-//		vehiculoBuild.setIdVehiculo(1);
-//		
-//		Mockito.when(VehiculoRepository.findOne(vehiculoBuild.getIdVehiculo())).thenReturn(vehiculoBuild);
-//		
-//	}
-	
-//	@Test
-//	public void buscarVehiculosPorIdVehiculo() {
-//		// Arrange
-//		Vehiculo vehiculoBuild = new VehiculoTestDataBuilder().withPlaca("ABC123").build();
-//		vehiculoBuild.setIdVehiculo(1);
-//		
-//		//act
-//		Vehiculo vehiculoRec = VehiculoRepository.findOne(vehiculoBuild.getIdVehiculo());     
-//		// Assert
-//		Assert.assertEquals(vehiculoBuild, vehiculoRec);
-//	}
 
 	@Test
 	public void buscarVehiculosPorPlaca() {

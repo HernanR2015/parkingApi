@@ -15,7 +15,7 @@ public class VehiculoTestDataBuilder {
 		this.placa = "ABC123";
 		this.cilindraje = "1200";
 		this.estado=1;
-		this.tipoVehiculo = 1;
+		this.tipoVehiculo = 3;
 	}
 	
 //	public VehiculoTestDataBuilder withIdVehiculo(int idVehiculo) {

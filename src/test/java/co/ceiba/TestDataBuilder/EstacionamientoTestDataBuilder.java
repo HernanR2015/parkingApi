@@ -15,16 +15,16 @@ public class EstacionamientoTestDataBuilder {
 	public EstacionamientoTestDataBuilder () {
 		Date date = new Date();
 //		this.idEstacionamiento =1;
-		this.valor = 7800;
+		this.valor = 0.0;
 		this.fechaIngreso = date;
 		this.fechaRetiro = date;
-		this.idVehiculo =1;
+		this.idVehiculo =2;
 	}
 	
-//	public EstacionamientoTestDataBuilder withIdEstacionamiento(int idEstacionamiento) {
-//		this.idEstacionamiento = idEstacionamiento;
-//		return this;
-//	}
+	public EstacionamientoTestDataBuilder withIdEstacionamiento(int idEstacionamiento) {
+		this.idEstacionamiento = idEstacionamiento;
+		return this;
+	}
 	
 	public EstacionamientoTestDataBuilder withValor(double valor) {
 		this.valor = valor;

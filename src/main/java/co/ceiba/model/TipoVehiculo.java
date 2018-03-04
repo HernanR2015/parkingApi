@@ -57,15 +57,7 @@ public class TipoVehiculo implements Serializable {
 		return valorDia;
 	}
 
-	public void setValorDia(double valorDia) {
-		this.valorDia = valorDia;
-	}
-
 	public double getValorHora() {
 		return valorHora;
-	}
-
-	public void setValorHora(double valorHora) {
-		this.valorHora = valorHora;
 	}
 }

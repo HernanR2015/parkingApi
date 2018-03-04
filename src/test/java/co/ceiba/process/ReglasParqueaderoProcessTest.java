@@ -13,7 +13,7 @@ public class ReglasParqueaderoProcessTest {
 	@Test
 	public void validarCupoTipoVehiculo() {
 		ReglasParqueaderoProcess reglas = new ReglasParqueaderoProcess();
-		boolean cupo = reglas.validarCupoTipoVehiculo(19, 1);
+		boolean cupo = reglas.validarCupoTipoVehiculo(19, 3);
 		
 		Assert.assertTrue(cupo);
 	}

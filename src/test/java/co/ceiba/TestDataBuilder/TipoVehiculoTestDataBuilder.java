@@ -11,9 +11,9 @@ public class TipoVehiculoTestDataBuilder {
 	
 	public TipoVehiculoTestDataBuilder() {
 //		this.idTipoVehiculo = 4;
-		this.nombreTipoVehiculo = "camion";
-		this.valorDia = 5000;
-		this.valorHora = 500;
+		this.nombreTipoVehiculo = "carro";
+		this.valorDia = 8000;
+		this.valorHora = 1000;
 	}
 	
 	public TipoVehiculoTestDataBuilder withNombreTipoVehiculo(String nombreTipoVehiculo) {
